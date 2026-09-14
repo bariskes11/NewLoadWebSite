@@ -1,0 +1,352 @@
+/* COLOR PALETTE
+#45BA64
+#45BAB2
+#4574BA
+#454545
+#F2F2F2
+#8F8F8F
+*/
+
+:root {
+    --palette1: #45BA64;
+    --palette2: #45BAB2;
+    --palette3: #4574BA;
+    --palette4: #454545;
+    --palette5: #F2F2F2;
+    --palette6: #8F8F8F;
+    --textcolor1: #FFFFFF;
+
+}
+
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+h2 {
+    font-family: "Outfit", sans-serif;
+}
+
+nav {
+    z-index: 1000;
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+}
+
+ul {
+    list-style-type: none;
+    /*no bullet points*/
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit", sans-serif;
+    /*font family from google fonts "https://fonts.google.com/specimen/Outfit?preview.script=Latn" */
+    overflow: hidden;
+    background-color: var(--palette1);
+    height: 60px;
+
+
+
+}
+
+ul li {
+    float: left;
+
+
+}
+
+h1 {
+    font-family: "Outfit", sans-serif
+}
+
+ul li a {
+    display: block;
+    color: var(--textcolor1);
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    height: 50px;
+
+}
+
+ul li a:hover,
+nav a:active {
+    background-color: var(--palette3);
+    cursor: pointer;
+    font-family: "Outfit", sans-serif;
+    height: 50px;
+}
+
+.main-content {
+    padding: 20px 20px;
+}
+
+.image-text {
+    color: var(--textcolor1);
+    font-size: 32px;
+    padding: 8px 12px;
+    position: absolute;
+    font-family: "Outfit", sans-serif;
+    top: 0;
+}
+
+.current-image-caption {
+    color: var(--textcolor1);
+    font-size: 40px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0 0;
+    justify-content: center;
+    font-family: "Outfit", sans-serif;
+    text-shadow: 3px 3px 5px var(--palette6);
+}
+
+/*START IMAGE SLIDER STYLE*/
+.imageslider-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 0;
+}
+
+.slider-image {
+    flex: 0 0 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    /* this is what hides the neighbors */
+}
+
+.slider-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.pointer-cursor {
+    cursor: pointer;
+}
+
+.opacity-set {
+    opacity: 0.6;
+}
+
+.opacity-set,
+.active:hover {
+    opacity: 1;
+}
+
+.previous,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    /* replaces margin-top */
+    padding: 16px;
+    color: var(--textcolor1);
+    font-weight: bold;
+    font-size: 20px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.previous:focus,
+.previous:active,
+.next:focus,
+.next:active {
+    color: var(--textcolor1);
+    padding: 16px;
+    border: none;
+    height: auto;
+    line-height: normal;
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+
+
+}
+
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.previous {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.previous:hover,
+.next:hover {
+    background-color: #000011;
+    opacity: 1;
+}
+
+.thumbnail-images {
+    display: flex;
+    justify-content: center;
+    /* the group sits in the middle */
+    flex-wrap: wrap;
+    /* wraps on narrow phones instead of overflowing */
+    gap: 4px;
+    /* the few-pixel offset between images */
+    margin-top: 8px;
+}
+
+.thumbnail-images img {
+    width: clamp(70px, 12vw, 120px);
+    /* 120px on desktop, a bit smaller on phones */
+    aspect-ratio: 5 / 3;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.thumbnail-images img:hover {
+    opacity: 1;
+}
+
+/*END IMAGE SLIDER STYLE*/
+
+/*START TEXT CONTENT STYLE*/
+/* box objects*/
+.text-column {
+    margin: 10px;
+    cursor: pointer;
+    flex: 1 200px;
+    border-color: var(--palette5);
+    box-shadow: outliner 0 0 10px var(--palette1);
+    border-style: solid;
+
+}
+
+.col1 {
+    background-color: var(--palette3);
+
+}
+
+.col2 {
+    background-color: var(--palette6);
+
+}
+
+.col3 {
+    background-color: var(--palette1);
+
+}
+
+.text-column h2 {
+    color: var(--textcolor1);
+    justify-content: center;
+    text-align: center;
+
+}
+
+
+.text-row {
+
+
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 300px;
+}
+
+.column-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.text-column-content {
+
+    border-width: 3px;
+    background-color: white;
+    width: 100%;
+    flex: 1;
+
+}
+
+.text-column-content p {
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+    font-weight: bold;
+    padding: 5px;
+    color: var(--palette3);
+}
+
+
+
+
+
+
+/*END TEXT CONTENT STYLE*/
+.footer-content {
+
+    background-color: var(--palette1);
+    color: var(--textcolor1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem 4rem;
+    padding: 2rem 1rem;
+}
+
+footer {
+    position: static;
+    margin-top: auto;
+
+    width: 100%;
+    background-color: var(--palette1);
+    padding-bottom: 4rem;
+}
+
+.footer-heading {
+    flex: 1 1 180px;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+}
+
+footer a {
+    font-family: "Outfit", sans-serif;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    width: fit-content;
+    
+}
+
+footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--textcolor1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+
+}
+
+footer a:hover::after {
+    transform: scaleX(1);
+}
