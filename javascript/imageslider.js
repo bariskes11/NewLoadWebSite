@@ -9,7 +9,7 @@ startTimer();
 function startTimer()
 {
 timer=setInterval(function () {
-    showSlide(1); // Change slide every 10 seconds
+    showSlide(slideIndex); // Change slide every 10 seconds
 }, 5000);
 
 }
@@ -47,6 +47,13 @@ function showSlides(n) {
 
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
+    }
+    console.log("image container");
+    console.log(imagecontainer);
+    if(imagecontainer==null)
+    {
+        console.log("Not at sliding page");
+     return;   
     }
     imagecontainer.style.transform = `translateX(-${slideIndex * 100}%)`;
     dots[slideIndex].className += " active";

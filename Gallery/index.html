@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../image/loan32.png">
 
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../gallery.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
@@ -24,12 +25,28 @@
             <li><a href="../Contact/">Contact</a></li>
         </ul>
     </nav>
-    <section class="main-content">
+    <section>
         <h1> Here are some assets you can get!</h1>
-        <!--Container for Image Slider-->
-<p> nice image gallery under construction....</p>
     </section>
 
+    <div class="img-content">
+        <div class="full-img" id="fullimgbox">
+            <img src="../image/loanAssets/car1.jpeg" id="fullimgitem">
+            <span onclick="closePopUp()"> <img src="../image/icons8-close-40.png"></span>
+        </div>
+        <!--Container for Image Gallery-->
+        <div class="img-gallery">
+            <img src="../image/loanAssets/car1.jpeg" onclick="openPopup(this.src)">
+            <img src="../image/loanAssets/car2.jpeg" onclick="openPopup(this.src)">
+            <img src="../image/loanAssets/car3.jpeg" onclick="openPopup(this.src)">
+            <img src="../image/loanAssets/haus1.jpeg" onclick="openPopup(this.src)">
+            <img src="../image/loanAssets/haus2.jpeg" onclick="openPopup(this.src)">
+            <img src="../image/loanAssets/haus3.jpeg" onclick="openPopup(this.src)">
+            <img src="../image/loanAssets/haus4.jpeg" onclick="openPopup(this.src)">
+            <img src="../image/loanAssets/haus5.jpeg" onclick="openPopup(this.src)">
+            <img src="../image/loanAssets/haus6.jpeg" onclick="openPopup(this.src)">
+        </div>
+    </div>
 
 
 
@@ -48,22 +65,22 @@
                 <a href="#"> X user Name</a>
                 <a href="#"> INstagram UserName</a>
                 <a href="#"> facebook</a>
-                
+
             </div>
             <div class="footer-headin">
-               <h2> Join newsletter</h2>
+                <h2> Join newsletter</h2>
                 <input type="email" placeholder="Enter your email adress" id="footer-email">
                 <input type="submit" id="footer-email-button">
             </div>
 
-             
+
         </div>
 
-        icons by <a
-                target="_blank" href="https://icons8.com">Icons8</a>
+        icons by <a target="_blank" href="https://icons8.com">Icons8</a>
     </footer>
 </body>
-<script type="text/javascript" src="../javascript/imageslider.js"></script>
+
+<script type="text/javascript" src="../javascript/gallery.js"></script>
 
 
 
