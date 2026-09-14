@@ -1,54 +1,35 @@
-
-
-let loanSlider = document.getElementById('loanrange');
-let paymentYearSlider = document.getElementById('yearrange');
+// Replace your current slider script with this file.
 
 const euro = new Intl.NumberFormat('de-DE', {
     style: 'currency',
     currency: 'EUR',
-
+    maximumFractionDigits: 0          // remove this line if you want cents
 });
 
-setUpSlider();
+function setupSlider(sliderId, outputId, format) {
+    const slider = document.getElementById(sliderId);
+    const output = document.getElementById(outputId);
+    const wrap = slider.parentElement;   // the .slider-wrap div
 
-function setUpSlider() {
-
-    if (loanSlider == null) {
-        console.log("Loan Slider Not Found!!");
-        return;
+    function update() {
+        const min = +slider.min || 0;
+        const max = +slider.max || 100;
+        // --ratio lives on the wrapper because the track and icon are its pseudo-elements
+        wrap.style.setProperty('--ratio', (slider.value - min) / (max - min));
+        output.textContent = format(slider.value);
     }
-    if (paymentYearSlider == null) {
-        console.log("Year Slider Not Found!!");
-        return;
-    }
-    loanSliderUpdate();
-    yearSliderUpdate();
-    loanSlider.addEventListener('input', loanSliderUpdate);
-    paymentYearSlider.addEventListener('input', yearSliderUpdate);
 
+    slider.addEventListener('input', update);
+    update();                            // set the initial fill and text on page load
 }
 
-function loanSliderUpdate() {
-    const min = +loanSlider.min || 0;
-    const max = +loanSlider.max || 100;
-    var updatedVal = (loanSlider.value - min) / (max - min);
-    loanSlider.style.setProperty('--ratio', updatedVal);// dynamic set of --ratio based on update
-    document.getElementById('selectedVal').innerHTML = euro.format(loanSlider.value);
-
-}
-function yearSliderUpdate() {
-    const min = +paymentYearSlider.min || 0;
-    const max = +paymentYearSlider.max || 100;
-    var updatedVal = (paymentYearSlider.value - min) / (max - min);
-    paymentYearSlider.style.setProperty('--ratio', updatedVal);// dynamic set of --ratio based on update
-    if(paymentYearSlider.value==1)
-    {
-    document.getElementById('selectedYearVal').innerHTML =paymentYearSlider.value+" year";    
-    }
-    else
-    {
-    document.getElementById('selectedYearVal').innerHTML =paymentYearSlider.value+" years";
-    }
-
+function init() {
+    setupSlider('loanrange', 'selectedVal', v => euro.format(v));
+    setupSlider('yearrange', 'selectedYearVal', v => v + (v == 1 ? ' year' : ' years'));
 }
 
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
