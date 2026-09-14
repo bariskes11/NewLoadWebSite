@@ -1,0 +1,75 @@
+.calculator-content {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 10px ;
+}
+.loan-value
+{
+font-family: "Outfit", sans-serif;
+font-size: large;
+font-weight: bold;
+}
+
+.loan-field {
+    
+    width: 50%;
+    margin: 10px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;   /* lines the text up even though h2 is bigger */
+    gap: 1rem;  
+    height: 40px;             /* keeps them from touching if space gets tight */
+}
+.row h2 {
+    margin: 0;               /* h2 has default margins that throw off the alignment */
+}
+
+.loan-slider {
+     display: block;
+    width: 100%;
+    margin: 0;   
+    --thumb: 40px;
+    /*size of thumb icon*/
+    --ratio: 0;
+    /*(thumb size /2  add full width - thumb size=) multiply by value  */
+    /*store --pos  to use at gradient*/
+    --pos: calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--ratio));
+    /*clear default styling*/
+    -webkit-appearance: none;
+    appearance: none;
+    
+    height: 25px;
+    background: linear-gradient(to right,
+            var(--palette3) var(--pos),
+        var(--palette4) var(--pos));
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.loan-slider:hover {
+    opacity: 1;
+}
+
+.loan-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80px;
+    height: 80px;
+    background: url('../image/icons8-interest-rate-78.png') no-repeat center / contain;
+    cursor: pointer;
+}
+
+.loan-slider::-moz-range-thumb {
+    width: 80px;
+    height: 80px;
+    background: url('../image/icons8-interest-rate-78.png') no-repeat center / contain;
+    cursor: pointer;
+}
+
+.loan-slider::-moz-range-track {
+    background: transparent;
+}

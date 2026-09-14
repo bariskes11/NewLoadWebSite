@@ -8,14 +8,12 @@
     <link rel="icon" type="image/x-icon" href="../image/loan32.png">
 
     <link rel="stylesheet" href="../main.css">
-
+    <link rel="stylesheet" href="../calculator.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
     <nav>
-
         <ul>
             <li><a href="../Home/"><img src="../image/loan32.png" alt="Home"></a></li>
             <li><a href="../Home/">Home</a></li>
@@ -24,15 +22,37 @@
             <li><a href="../Contact/">Contact</a></li>
         </ul>
     </nav>
-    <section class="main-content">
-        <h1> Calculator Will be Here</h1>
-        <!--Container for Image Slider-->
 
-    </section>
+    <div class="calculator-content">
+        <h1> Let's do the math and get a quote!</h1>
+    </div>
+
+<!-- <div class="loan-field">
+    <div class="row">
+        <h2>Choose a loan amount</h2>
+        <span class="loan-value" id="selectedVal">0</span>
+    </div>
+    <div class="slider-wrap">
+        <input type="range" min="1000" max="1000000" value="5000" class="loan-slider" id="loanrange">
+    </div>
+</div> -->
 
 
+    <div class="loan-field">
+        <div class="row">
+            <h2>Choose a loan amount</h2>
+            <span class="loan-value" id="selectedVal">0</span>
+        </div>
+        <input type="range" min="1000" max="1000000" value="5000" class="loan-slider" id="loanrange">
+    </div>
 
-
+    <div class="loan-field">
+        <div class="row">
+            <h2>Choose a loan period</h2>
+            <span class="loan-value" id="selectedYearVal">0</span>
+        </div>
+        <input type="range" min="1" max="40" value="20" class="loan-slider" id="yearrange">
+    </div>
 
 
     <footer>
@@ -48,23 +68,22 @@
                 <a href="#"> X user Name</a>
                 <a href="#"> INstagram UserName</a>
                 <a href="#"> facebook</a>
-                
+
             </div>
             <div class="footer-headin">
-               <h2> Join newsletter</h2>
+                <h2> Join newsletter</h2>
                 <input type="email" placeholder="Enter your email adress" id="footer-email">
                 <input type="submit" id="footer-email-button">
             </div>
 
-             
+
         </div>
 
-        icons by <a
-                target="_blank" href="https://icons8.com">Icons8</a>
+        <div class="poweredby">
+            <a target="_blank" href="https://icons8.com"> icons by Icons8</a>
+        </div>
     </footer>
 </body>
-<script type="text/javascript" src="../javascript/imageslider.js"></script>
-
-
+<script type="text/javascript" src="../javascript/calculator.js"></script>
 
 </html>

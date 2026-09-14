@@ -364,3 +364,8 @@ footer a::after {
 footer a:hover::after {
     transform: scaleX(1);
 }
+footer .poweredby
+{
+    justify-content: center;
+    text-align: center;
+}
