@@ -1,34 +1,35 @@
 let slideIndex = 0;
-let timer=0;
+let timer = 0;
 const imagecontainer = document.querySelector(".imageslider-container");
 const slides = document.getElementsByClassName("slider-image");
 
 showSlide(slideIndex);
 startTimer();
 
-function startTimer()
-{
-timer=setInterval(function () {
-    showSlide(slideIndex); // Change slide every 10 seconds
-}, 5000);
+function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(function () {
+        
+        showSlide(1); // Change slide every 10 seconds        
+    }, 5000);
 
 }
 
-function showSlideFromClick(n)
-{
+function showSlideFromClick(n) {
     clearInterval(timer); // Clear the existing timer
     showSlide(n);
     startTimer();
 }
 
 function showSlide(n) {
-    showSlides(slideIndex += n);
+    slideIndex += n;
+    showSlides(slideIndex);
 }
 
 function switchSlide(n) {
     clearInterval(timer); // Clear the existing timer
     showSlides(slideIndex = n);
-     startTimer();
+    startTimer();
 }
 
 function showSlides(n) {
@@ -48,13 +49,12 @@ function showSlides(n) {
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    console.log("image container");
-    console.log(imagecontainer);
-    if(imagecontainer==null)
-    {
+
+    if (imagecontainer == null) {
         console.log("Not at sliding page");
-     return;   
+        return;
     }
+    
     imagecontainer.style.transform = `translateX(-${slideIndex * 100}%)`;
     dots[slideIndex].className += " active";
     captionText.innerHTML = dots[slideIndex].alt;
