@@ -17,6 +17,7 @@ function setupSlider(sliderId, outputId, format) {
         // --ratio lives on the wrapper because the track and icon are its pseudo-elements
         wrap.style.setProperty('--ratio', (slider.value - min) / (max - min));
         output.textContent = format(slider.value);
+
     }
 
     slider.addEventListener('input', update);
@@ -30,6 +31,19 @@ function init() {
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
-} else {
+}
+else {
     init();
+}
+
+
+
+function monthlyEstimateUpdate()
+{
+     const lblestimate = document.getElementById('lblMonthlyEstimate');
+     const loanamontslider = document.getElementById('loanrange');
+     const loanperiodslider = document.getElementById('yearrange');
+//TO DO interest rates  calculation 
+const interesRate=5;//5%
+//TO DO calculate interest rate
 }

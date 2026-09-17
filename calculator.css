@@ -15,10 +15,12 @@
 }
 
 .loan-field {
-    --thumb: 80px;                       /* icon size - change it here only */
+    --thumb: 80px;
+    /* icon size - change it here only */
     width: 50%;
     margin: 10px;
-    padding: 0 calc(var(--thumb) / 2);   /* room for the icon to overhang the track ends */
+    padding: 0 calc(var(--thumb) / 2);
+    /* room for the icon to overhang the track ends */
     box-sizing: border-box;
 }
 
@@ -37,7 +39,8 @@
 /* ---------- slider ---------- */
 
 .slider-wrap {
-    --ratio: 0;                          /* 0..1, set by JavaScript */
+    --ratio: 0;
+    /* 0..1, set by JavaScript */
     position: relative;
     height: var(--thumb);
 }
@@ -52,8 +55,8 @@
     height: 25px;
     transform: translateY(-50%);
     background: linear-gradient(to right,
-        var(--palette3) calc(var(--ratio) * 100%),
-        var(--palette4) calc(var(--ratio) * 100%));
+            var(--palette3) calc(var(--ratio) * 100%),
+            var(--palette4) calc(var(--ratio) * 100%));
     opacity: 0.7;
     transition: opacity .2s;
 }
@@ -73,7 +76,8 @@
     height: var(--thumb);
     transform: translateX(-50%);
     background: url('../image/icons8-interest-rate-78.png') no-repeat center / contain;
-    pointer-events: none;                /* clicks go through to the input underneath */
+    pointer-events: none;
+    /* clicks go through to the input underneath */
 }
 
 /* visible keyboard focus, since the real input is invisible */
@@ -109,4 +113,60 @@
     width: var(--thumb);
     height: var(--thumb);
     border: none;
+}
+
+.estimated-payment {
+    color: var(--palette3);
+    font-family: "Outfit", sans-serif;
+    text-shadow: 5px 5px 10px var(--palette4);
+
+}
+
+.estimated-payment strong {
+    color: var(--palette1);
+    font-size: 50px
+}
+
+.create-details {
+    align-content: center;
+    font-family: "Outfit", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--palette5);
+    text-shadow: 1px 1px 1px var(--palette4);
+    cursor: pointer;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--palette1);
+    border: 10px solid var(--palette1);
+    animation-iteration-count: 0;
+}
+
+.create-details:hover,
+.create-details:active {
+    animation-name: calculatebuttonAnim;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+}
+
+
+@keyframes calculatebuttonAnim {
+
+    0%,
+    100% {
+
+        border-radius: 5px;
+        background-color: var(--palette1);
+        border: 10px solid var(--palette1);
+    }
+
+    50% {
+
+        border-radius: 5px;
+        background-color: var(--palette4);
+        border: 10px solid var(--palette4);
+
+    }
+
 }

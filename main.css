@@ -11,7 +11,7 @@
     --palette1: #45BA64;
     --palette2: #45BAB2;
     --palette3: #4574BA;
-    --palette4: #454545;
+    --palette4: #e9b234;
     --palette5: #F2F2F2;
     --palette6: #8F8F8F;
     --textcolor1: #FFFFFF;
@@ -36,18 +36,23 @@ nav {
     top: 0;
     position: sticky;
     position: -webkit-sticky;
+    background: url('../image/nav-waves.svg') no-repeat;
+    background-size: 100% 100%;
+    box-shadow: outliner 5px 5px 10px var(--palette1);
+    margin-bottom: -40px;
+    /*added to combine correcyly with slider.*/
+
 }
 
 ul {
     list-style-type: none;
-    /*no bullet points*/
     margin: 0;
     padding: 0;
     font-family: "Outfit", sans-serif;
     /*font family from google fonts "https://fonts.google.com/specimen/Outfit?preview.script=Latn" */
     overflow: hidden;
-    background-color: var(--palette1);
-    height: 60px;
+    margin-bottom: -10px;
+    height: 100px;
 
 
 
@@ -70,22 +75,40 @@ ul li a {
     padding: 16px 16px;
     text-decoration: none;
     height: 50px;
+    font-size: 20px;
 
 }
 
 ul li a:hover,
 nav a:active {
-    background-color: var(--palette3);
+    animation-name: bounceAnimation;
+    animation-duration: 0.24s;
+    animation-iteration-count: 1;
+    color: var(--palette4);
     cursor: pointer;
     font-family: "Outfit", sans-serif;
-    height: 50px;
+    height: 50px important;
+    text-shadow: 5px 5px 5px var(--palette6);
+}
+
+@keyframes bounceAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+
+    }
+
 }
 
 .main-content {
-    
+
     position: absolute;
     justify-content: center;
-    
     width: 100%;
     z-index: 1;
     text-align: center;
@@ -93,10 +116,15 @@ nav a:active {
     text-shadow: 3px 3px 5px var(--palette4);
 }
 
+.main-slogan {
+    padding: 38px 12px;
+}
+
+
 .image-text {
     color: var(--textcolor1);
-    font-size: 32px;
-    padding: 8px 12px;
+    font-size: 25px;
+    padding: 45px 12px;
     position: absolute;
     font-family: "Outfit", sans-serif;
     top: 0;
@@ -128,30 +156,28 @@ nav a:active {
     position: relative;
     margin: 0;
     padding: 0;
-
 }
 
 .slider {
     position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
     /* this is what hides the neighbors */
+    overflow: hidden;
+    margin: 0px;
+    padding: 0;
+
 }
 
 .slider-image img {
     width: 100%;
-    height: 550px;
-    object-fit:cover;
+    height: 650px;
+    object-fit: cover;
     display: block;
     margin: 0;
     padding: 0;
 }
-@media (max-width:600px) {
-    .slider-image img {
-        object-fit: scale-down;
-    }
-}
+
+
+
 .pointer-cursor {
     cursor: pointer;
 }
@@ -169,7 +195,7 @@ nav a:active {
 .next {
     cursor: pointer;
     position: absolute;
-    top: 45%;
+    top: 55%;
     transform: translateY(-50%);
     /* replaces margin-top */
     padding: 16px;
@@ -344,7 +370,7 @@ footer a {
     text-decoration: none;
     color: inherit;
     width: fit-content;
-    
+
 }
 
 footer a::after {
@@ -364,8 +390,36 @@ footer a::after {
 footer a:hover::after {
     transform: scaleX(1);
 }
-footer .poweredby
-{
+
+footer .poweredby {
     justify-content: center;
     text-align: center;
+}
+
+/*Mobile Resolution setting*/
+@media (max-width:600px) {
+    .slider-image img {
+        object-fit: scale-down;
+    }
+
+    nav {
+        background: url('../image/nav-waves-mobile.svg') no-repeat;
+    }
+
+    .main-slogan {
+        padding: 58px 12px;
+    }
+
+
+    .image-text {
+        font-size: 15px;
+    }
+
+    .current-image-caption {
+
+        font-size: 30px;
+        padding: 58px 12px;
+
+    }
+
 }
