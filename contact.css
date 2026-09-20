@@ -1,0 +1,40 @@
+
+
+
+
+
+
+.contact-header
+{
+    margin-top: 80px;
+    margin-left: 1%;
+
+}
+
+
+.main-contact-content {
+
+    margin: 10px;
+    flex: 1 200px;
+    height: 100%;
+    border-color: var(--palette5);
+    box-shadow: outliner 0 0 10px var(--palette1);
+    border-style: solid;
+}
+.row {
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    
+    
+    
+}
+.company-icon
+{
+    justify-content: center;
+    align-content: center;
+    background-color: red;
+    
+}

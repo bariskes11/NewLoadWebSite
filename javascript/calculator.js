@@ -1,4 +1,4 @@
-// Replace your current slider script with this file.
+
 
 const euro = new Intl.NumberFormat('de-DE', {
     style: 'currency',
@@ -63,7 +63,7 @@ function monthlyEstimateUpdate() {
     setLbl('lblamount', loanamontslider.value);
     var amount = loanamontslider.value;
     var interesRate = interestRateCalculator(loanperiodslider.value, loanamontslider.value);//5%
-    document.getElementById('lblinterestrate').innerHTML = interesRate + " %";
+    document.getElementById('lblinterestrate').innerHTML = interesRate.toFixed(2) + " %";
     const n = loanperiodslider.value * 12;
     const r = interesRate / 100 / 12; // get monthly interest rate.
     const monthly = r === 0
@@ -75,11 +75,12 @@ function monthlyEstimateUpdate() {
     setLbl('lbltotalpayment', total);
     setLbl('lblmonthlypayment', monthly);
     setLbl('lblMonthlyEstimate', monthly);
+    document.getElementById('payment-details').style.display='block';
 
 
-
-    //TO DO calculate interest rate
     // formula from https://en.wikipedia.org/wiki/Amortizing_loan
     //M = P × r × (1 + r)^n / ((1 + r)^n − 1)
 
 }
+
+
