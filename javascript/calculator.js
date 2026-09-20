@@ -37,13 +37,49 @@ else {
 }
 
 
+function interestRateCalculator(year, amount) {
+    var finalInterestRate = 0;
+    finalInterestRate = year * 1.02;
 
-function monthlyEstimateUpdate()
-{
-     const lblestimate = document.getElementById('lblMonthlyEstimate');
-     const loanamontslider = document.getElementById('loanrange');
-     const loanperiodslider = document.getElementById('yearrange');
-//TO DO interest rates  calculation 
-const interesRate=5;//5%
-//TO DO calculate interest rate
+    if (amount > 400000) // adds more due to amounth
+    {
+        finalInterestRate += 1.2;
+    }
+    return finalInterestRate;
+
+
+}
+function setLbl(elementId, val) {
+    var targetElement = document.getElementById(elementId);
+    targetElement.innerHTML = euro.format(val);
+}
+
+
+
+function monthlyEstimateUpdate() {
+    const lblestimate = document.getElementById('lblMonthlyEstimate');
+    const loanamontslider = document.getElementById('loanrange');
+    const loanperiodslider = document.getElementById('yearrange');
+    setLbl('lblamount', loanamontslider.value);
+    var amount = loanamontslider.value;
+    var interesRate = interestRateCalculator(loanperiodslider.value, loanamontslider.value);//5%
+    document.getElementById('lblinterestrate').innerHTML = interesRate + " %";
+    const n = loanperiodslider.value * 12;
+    const r = interesRate / 100 / 12; // get monthly interest rate.
+    const monthly = r === 0
+        ? amount / n
+        : amount * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    const total = monthly * n;
+
+    setLbl('lbltotalinterest', (total - amount));
+    setLbl('lbltotalpayment', total);
+    setLbl('lblmonthlypayment', monthly);
+    setLbl('lblMonthlyEstimate', monthly);
+
+
+
+    //TO DO calculate interest rate
+    // formula from https://en.wikipedia.org/wiki/Amortizing_loan
+    //M = P × r × (1 + r)^n / ((1 + r)^n − 1)
+
 }

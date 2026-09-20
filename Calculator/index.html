@@ -27,43 +27,89 @@
         <h1> Let's do the math and get a quote!</h1>
     </div>
 
-    <div class="loan-field">
-        <div class="row">
-            <h2>Choose a loan amount</h2>
-            <span class="loan-value" id="selectedVal">0</span>
-        </div>
-        <div class="slider-wrap">
-            <input type="range" min="1000" max="1000000" value="5000" class="loan-slider" id="loanrange">
-        </div>
-    </div>
-
-    <div class="loan-field">
-        <div class="row">
-            <h2>Choose a loan period</h2>
-            <span class="loan-value" id="selectedYearVal">0</span>
-        </div>
-        <div class="slider-wrap">
-            <input type="range" min="1" max="40" value="20" class="loan-slider" id="yearrange">
-        </div>
-        <div class="row">
-
-            <div class="estimated-payment">
-                Monthly Estimate <strong id="lblMonthlyEstimate">100€</strong>
-            </div>
-            <div class="create-details">
-                Payment Plan!
+    <div class="loan-main">
+        <div class="loan-form">
+            <div class="loan-field">
+                <div class="row">
+                    <h2>Choose a loan amount</h2>
+                    <span class="loan-value" id="selectedVal">0</span>
+                </div>
+                <div class="slider-wrap">
+                    <input type="range" min="1000" max="1000000" value="5000" class="loan-slider" id="loanrange">
+                </div>
             </div>
 
+            <div class="loan-field">
+                <div class="row">
+                    <h2>Choose a loan period</h2>
+                    <span class="loan-value" id="selectedYearVal">0</span>
+                </div>
+                <div class="slider-wrap">
+                    <input type="range" min="1" max="40" value="1" class="loan-slider" id="yearrange">
+                </div>
+                <div class="row">
+
+                    <div class="estimated-payment">
+                        Monthly Estimate <strong id="lblMonthlyEstimate">-€</strong>
+                    </div>
+                    <div class="create-details" onclick="monthlyEstimateUpdate()">
+                        Payment Plan!
+                    </div>
+
+                </div>
+                <div class="row"></div>
+
+            </div>
         </div>
-        <div class="row"></div>
+        <div class="loan-result">
+            <h2>Click Payment Plan to Get Details!</h2>
+            <div class="payment-details">
+                <div class="row">
+                    <div class="loan-result-label">Requested Amount</div>
+                    <div class="loan-result-details"  id="lblamount">1000€</div>
+                </div>
+
+                <div class="row">
+                    <div class="loan-result-label">Total Interest Rate</div>
+                    <div class="loan-result-details"  id="lblinterestrate">20 %</div>
+                </div>
+                
+                <div class="row">
+                    <div class="loan-result-label">Total Interest </div>
+                    <div class="loan-result-details"  id="lbltotalinterest">xxx€</div>
+                </div>
+                
+                <div class="row">
+                    <div class="loan-result-label">Total Payment</div>
+                    <div class="loan-result-details" id="lbltotalpayment">1000€</div>
+                </div>
+                <div class="row">
+                    <div class="loan-result-label">Monthly Payment</div>
+                    <div class="loan-result-details" id="lblmonthlypayment">1000€</div>
+                </div>
+
+                <div class="row">
+                    <div></div>
+                     <div class="create-details">
+
+                    Request Loan!
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
 
     </div>
+
+
+
+
 
 
 
 
     <div class="calculation-field">
-        <div onclick="calculate()"></div>
+        <div></div>
     </div>
 
 
