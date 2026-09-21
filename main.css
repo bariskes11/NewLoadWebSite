@@ -36,7 +36,7 @@ nav {
     top: 0;
     position: sticky;
     position: -webkit-sticky;
-    background: url('../image/nav-waves.svg') no-repeat;
+    background: url('./image/nav-waves.svg') no-repeat;
     background-size: 100% 100%;
     box-shadow: outliner 5px 5px 10px var(--palette1);
     margin-bottom: -40px;
@@ -403,7 +403,7 @@ footer .poweredby {
     }
 
     nav {
-        background: url('../image/nav-waves-mobile.svg') no-repeat;
+        background: url('./image/nav-waves-mobile.svg') no-repeat;
     }
 
     .main-slogan {
