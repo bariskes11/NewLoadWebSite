@@ -404,6 +404,13 @@ footer .poweredby {
 
     nav {
         background: url('./image/nav-waves-mobile.svg') no-repeat;
+        z-index: 1000;
+        top: 0;
+        position: sticky;
+        position: -webkit-sticky;
+        background-size: 100% 100%;
+        box-shadow: outliner 5px 5px 10px var(--palette1);
+        margin-bottom: -40px;
     }
 
     .main-slogan {
