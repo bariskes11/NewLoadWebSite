@@ -5,7 +5,7 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    margin: 10px 10px;
+    margin: 25px 25px;
 }
 
 .loan-value {
@@ -37,22 +37,17 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 1024px) {
-    .loan-main {
-        grid-template-columns: minmax(0, 1fr);
-    }
 
-    .loan-result {
-        margin-left: 10%;
-
-    }
-}
 
 .loan-result {
-
+ display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     vertical-align: top;
-    max-width: 400px;
+    max-width: 100%;
     margin-left: 10px;
+    margin-right: 10%;
+    margin-top: 60px;
+    margin-bottom: 40px;
     font-family: "Outfit", sans-serif;
     display: none;
 
@@ -221,5 +216,16 @@
         border: 10px solid var(--palette4);
 
     }
+
+}
+@media (max-width: 600px) {
+    .loan-main {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .create-details
+    {
+        height: 70px;
+    }
+
 
 }
