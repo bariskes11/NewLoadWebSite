@@ -13,14 +13,31 @@
 </head>
 
 <body>
-    <nav>
+      <nav>
+        <div class="brand">
+            <a href="../Home/"><img src="../image/loan32.png" alt="Home"></a>
+            <div class="brandName">Super Loans!</div>
+        </div>
         <ul>
-            <li><a href="../Home/"><img src="../image/loan32.png" alt="Home"></a></li>
+            <li class="dekstop-menu"><a href="../Home/">Home</a></li>
+            <li class="dekstop-menu"><a href="../Calculator/">Calculator</a></li>
+            <li class="dekstop-menu"><a href="../Gallery/">Photo Gallery</a></li>
+            <li class="dekstop-menu"><a href="../Contact/">Contact</a></li>
+            <li class="mobile-menu" onclick="openSideMenu()"><a href="#"><img src="../image/icons8-top-menu-40.png"
+                        alt=""></a></li>
+
+        </ul>
+
+        <ul class="sidebar"> <!-- Mobile Menu-->
+
             <li><a href="../Home/">Home</a></li>
             <li><a href="../Calculator/">Calculator</a></li>
             <li><a href="../Gallery/">Photo Gallery</a></li>
             <li><a href="../Contact/">Contact</a></li>
+            <li onclick="closeSideMenu()"><a href="#"><img src="../image/icons8-close-50.png" alt=""></a></li>
+
         </ul>
+
     </nav>
 
     <div class="calculator-content">
@@ -141,7 +158,9 @@
             <a target="_blank" href="https://icons8.com"> icons by Icons8</a>
         </div>
     </footer>
+     <script  src="../javascript/menuItems.js"></script>
+     <script type="text/javascript" src="../javascript/calculator.js"></script>
 </body>
-<script type="text/javascript" src="../javascript/calculator.js"></script>
+
 
 </html>

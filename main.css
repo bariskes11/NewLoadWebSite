@@ -19,12 +19,17 @@
 }
 
 
-body {
+* {
 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 
+}
+body
+{
+    min-height: 100vh;
 }
 
 h2 {
@@ -44,8 +49,10 @@ nav {
 
 }
 
-ul {
+nav ul {
     list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
     margin: 0;
     padding: 0;
     font-family: "Outfit", sans-serif;
@@ -54,14 +61,55 @@ ul {
     margin-bottom: -10px;
     height: 100px;
 
-
+}
+nav .brand
+{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin-top: 1vh;
+    margin-left: 2vh;
 
 }
+nav .brandName
+{
+ font-family: "Outfit", sans-serif;
+ color: var(--palette5);
+ font-weight: bold;
+ font-size: 25px;
+ padding-left: 1vh;
+}
 
-ul li {
-    float: left;
 
-
+.sidebar{/*mobile sidebar menu*/
+    position: fixed; /*make sure to snap it to right side*/
+    top: 0;
+    right:0;
+    backdrop-filter: blur(10px); /* blur effect for background*/
+    background-color: rgba(0,255,1, .2); /*blur effect bg color  needd alpha*/
+    box-shadow: -8px 0 10px rgba(0,0,0,0.6);
+    height: 100vh;
+    z-index: 1000;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+}
+.sidebar li
+{
+    align-items: left;
+    justify-content: left;
+    
+    
+}
+.sidebar li a
+{
+    width: 100%;
+    color: #000000;
+    font-weight: bold;
+    text-shadow: -8px 0 10px rgba(255,255,255,0.6);
 }
 
 h1 {
@@ -395,9 +443,21 @@ footer .poweredby {
     justify-content: center;
     text-align: center;
 }
+.mobile-menu
+{
+    display: none;
+}
 
 /*Mobile Resolution setting*/
-@media (max-width:600px) {
+@media (max-width:800px) {
+.dekstop-menu
+{
+    display: none;
+}    
+.mobile-menu
+{
+    display: inline;
+}
     .slider-image img {
         object-fit: scale-down;
     }
