@@ -105,7 +105,7 @@
     width: var(--thumb);
     height: var(--thumb);
     transform: translateX(-50%);
-    background: url('../image/icons8-interest-rate-78.png') no-repeat center / contain;
+    background: url('./image/icons8-interest-rate-78.png') no-repeat center / contain;
 
     pointer-events: none;
     /* clicks go through to the input underneath */
@@ -183,7 +183,8 @@
     color: var(--palette5);
     text-shadow: 1px 1px 1px var(--palette4);
     cursor: pointer;
-    height: 100%;
+    
+      height: 70px;
     border-radius: 5px;
     background-color: var(--palette1);
     border: 10px solid var(--palette1);
@@ -222,10 +223,7 @@
     .loan-main {
         grid-template-columns: minmax(0, 1fr);
     }
-    .create-details
-    {
-        height: 70px;
-    }
+   
 
 
 }
