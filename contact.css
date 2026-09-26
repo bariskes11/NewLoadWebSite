@@ -65,6 +65,7 @@
     background-color: var(--palette1);
     border: 10px solid var(--palette1);
 }
+.btn-send-email :cli
 .map-container
 {
     margin: 15px;
