@@ -454,11 +454,20 @@ footer a::after {
 
 footer a:hover::after {
     transform: scaleX(1);
+    
 }
 
 footer .poweredby {
     justify-content: center;
     text-align: center;
+}
+footer .developer
+{
+     text-shadow: 5px 0px 5px var(--palette4);
+     font-size: 1.3rem;
+     color: var(--palette5);
+     height: 100%;
+     width: 100%;
 }
 .mobile-menu
 {

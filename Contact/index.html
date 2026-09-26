@@ -75,67 +75,126 @@
                                 Email:
                             </div>
 
-                            <input class="q-item" type="text" placeholder="enter your email">
+                            <input id="email" class="q-item" type="text" placeholder="your@email.com">
+                            <div class="txt-error" id="emailError"></div>
                         </div>
                         <div>
                             <div class="q-item">
                                 Your Question:
                             </div>
-                            <textarea class="q-item" rows="8" cols="3" name="comment" id="comment"
-                                placeholder="we are here to help! Feel free to reach out!"></textarea>
+                            <textarea id="txtquestion" class="q-item" rows="8" cols="3" name="comment" id="comment"
+                                placeholder="We are here to help! Feel free to reach out!"></textarea>
+                            <div class="txt-error" id="questionError"></div>
                         </div>
+                        <div class="btn-send-email" onclick="sendMail()">
+                            Send
+                        </div>
+                        <div class="txt-success" id="questionSuccess">Your Question Successfuly Sent! We will get back
+                            to you</div>
 
 
                     </div>
-                    <div class="btn-send-email"  onclick="sendMail()">
-                        Send 
-                    </div>
+
                 </div>
 
             </div>
         </div>
 
     </div>
-     
-             
-                   
 
-    
+
+
+
+
     <footer>
         <div class="footer-content">
             <div class="footer-heading ">
                 <h2> About Us</h2>
                 <a href="../Contact/"> Contact link</a>
-                <a href="#">  Hakaniemenranta 10 99530 </a>
-                <a href="#">  +358 999 99 99 99</a>
+                <a href="#"> Hakaniemenranta 10 99530 </a>
+                <a href="#"> +358 999 99 99 99</a>
             </div>
             <div class="footer-heading">
                 <h2> Social</h2>
-                <a href="#">  <img src="../image/icons8-instagram-48.png" alt=""> </a>
-                <a href="#">   <img src="../image/icons8-facebook-48.png" alt=""> </a>
-                <a href="#">   <img src="../image/icons8-x-48.png" alt=""> </a>
+                <a href="#"> <img src="../image/icons8-instagram-48.png" alt=""> </a>
+                <a href="#"> <img src="../image/icons8-facebook-48.png" alt=""> </a>
+                <a href="#"> <img src="../image/icons8-x-48.png" alt=""> </a>
             </div>
             <div class="footer-heading">
                 <h2> Documents</h2>
-                <a  target="_blank" href="../WebReports/LoanWebSiteMockUp.png">  Mock ups </a>
-                <a  target="_blank" href="../WebReports/WebReports/NewSuperLoanWebSiteDocumen.docx">  Web Dev Documents </a>
-                <a  target="_blank" href="https://github.com/bariskes11/NewLoadWebSite">  Git Source </a>
+                <a target="_blank" href="../WebReports/LoanWebSiteMockUp.png"> Mock ups </a>
+                <a target="_blank" href="../WebReports/WebReports/NewSuperLoanWebSiteDocumen.docx"> Web Dev Documents
+                </a>
+                <a target="_blank" href="https://github.com/bariskes11/NewLoadWebSite"> Git Source </a>
             </div>
         </div>
 
         <div class="poweredby">
-            
-            <a target="_blank" href="https://bariskes.com">Developed by Barış KES </a>        
+
+            <a target="_blank" href="https://bariskes.com">Developed by Barış KES </a>
             <hr>
-        <a target="_blank" href="https://icons8.com"> icons by Icons8</a>
+            <a target="_blank" href="https://icons8.com"> icons by Icons8</a>
         </div>
     </footer>
     <script src="../javascript/menuItems.js"></script>
     <script>
-        function sendMail()
-        {
-            console.log("send mail to source");
+        const emailError = document.getElementById("emailError");
+        const questionError = document.getElementById("questionError");
+        const questionSuccess = document.getElementById("questionSuccess");
+        const mailSend = false;
+        questionSuccess.style.display = "none";
+        function sendMail() {
+            if (mailSend) {
+                // hidden bool to basic protection for mailbomb 
+                return;
+            }
+            var email = document.getElementById("email");
+            var question = document.getElementById("txtquestion");
+            var error = false;
+            if (!validateEmail(email)) {
+
+                error = true;
+            }
+            if (!validateContent(question)) {
+                error = true;
+            }
+            if (error) {
+                return;
+            }
+            questionSuccess.style.display = "block";
+            mailSend = true;
+
         }
+
+
+        function validateEmail(email) {
+            var value = email.value.trim();
+            if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))) {
+                showError(emailError, "Enter a valid email address.");
+                return false;
+            }
+            hideError(emailError);
+
+            return true;
+        }
+        function validateContent(questionContent) {
+            let value = questionContent.value.trim();
+            if (value.length < 20) { // its not a valid question
+                showError(questionError, "your question must be more than 20 letters");
+                return false;
+            }
+            hideError(questionError);
+            return true;
+        }
+
+        function showError(targetField, errorMessage) {
+            targetField.innerHTML = errorMessage;
+        }
+
+        function hideError(targetField) {
+            targetField.innerHTML = "";
+        }
+
     </script>
 </body>
 
