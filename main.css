@@ -326,7 +326,7 @@ nav a:active {
 .text-column {
     margin: 10px;
     cursor: pointer;
-    flex: 1;
+    flex: 1 200px;
     border-color: var(--palette5);
     box-shadow: outliner 0 0 10px var(--palette1);
     border-style: solid;
