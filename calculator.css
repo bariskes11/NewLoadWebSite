@@ -40,7 +40,7 @@
 
 
 .loan-result {
- display: grid;
+    display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     vertical-align: top;
     max-width: 100%;
@@ -58,6 +58,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    flex-wrap: nowrap;
     gap: 1rem;
     height: 40px;
 }
@@ -152,8 +153,9 @@
     text-shadow: 5px 5px 10px var(--palette4);
 
 }
+
 .estimated-payment strong {
-     white-space: nowrap;
+    white-space: nowrap;
 }
 
 .loan-result-label {
@@ -186,8 +188,8 @@
     color: var(--palette5);
     text-shadow: 1px 1px 1px var(--palette4);
     cursor: pointer;
-    
-      height: 70px;
+
+    height: 70px;
     border-radius: 5px;
     background-color: var(--palette1);
     border: 10px solid var(--palette1);
@@ -222,11 +224,21 @@
     }
 
 }
+
 @media (max-width: 800px) {
     .loan-main {
         grid-template-columns: minmax(0, 1fr);
     }
-   
+
+
+    .loan-result {
+        margin-top: 160px;
+    }
+    .row
+    {
+        flex-wrap: wrap;
+    }
+
 
 
 }
