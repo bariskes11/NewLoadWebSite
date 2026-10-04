@@ -1,0 +1,39 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+
+}
+
+h1 {
+    color: rgb(214, 118, 39);
+}
+
+h2 {
+    color: rgba(32, 32, 167, 0.692);
+    text-shadow: 5px 5px 10px  rgb(102, 151, 106);
+}
+p
+{
+    padding-bottom: 20px;
+}
+
+.report-content {
+    padding-top: 20px;
+    width: 80%;
+    margin: auto;
+
+}
+.report-ul
+{
+    list-style-type:smiley;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+@counter-style smiley {
+    system: cyclic;
+    symbols: "\1F60A";
+    suffix: " ";
+}
