@@ -26,8 +26,11 @@
 
 video {
     /* override other styles to make responsive */
-    width: 100% !important;
-    height: auto !important;
+    width: 100%;
+    max-width: 800px;
+    max-height: 70vh;
+    height: auto;
+    display: block;
 }
 
 .img-gallery img {
@@ -85,15 +88,15 @@ video {
     max-width: 500px;
 }
 
-.full-img span {
-    position: absolute;
-    top: 2%;
-    left: 2%;
-
-    color: white;
-    cursor: pointer;
-
-}
+ .full-img span {
+        top: 1%;
+        right: 1%;
+        position: absolute;
+        justify-content: right;
+        align-content: top;
+        color: white;
+        cursor: pointer;
+    }
 
 .img-gallery img:active
 
@@ -105,8 +108,18 @@ video {
 }
 
 @media (max-width:600px) {
+
+video {
+    /* override other styles to make responsive */
+    width: 100%;
+    max-width: 400px;
+    max-height: 70vh;
+    height: auto;
+    display: block;
+}
+
+
     .target-img {
-        object-fit: scale-down;
         width: 100%;
     }
 
@@ -114,15 +127,7 @@ video {
         max-width: 100%;
     }
 
-    .full-img span {
-        top: 1%;
-        left: 1%;
-        position: absolute;
-        justify-content: left;
-        align-content: top;
-        color: white;
-        cursor: pointer;
-    }
+   
 
 
 }

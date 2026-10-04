@@ -50,7 +50,7 @@
     justify-content: center;
     display: flex;
     font-family: "Outfit", sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     color: var(--palette5);
     text-shadow: 1px 1px 1px var(--palette4);
@@ -80,7 +80,7 @@
     font-family: "Outfit", sans-serif;
     color: var(--palette1);
     text-shadow: 4px 4px 4px var(--palette4);
-    font-size: 20px;
+    font-size: 1.25rem;
     margin: 15px;
 }
 
@@ -90,7 +90,7 @@ textarea {
     padding: 12px 16px;
     width: 100%;
 
-    font-size: 16px;
+    font-size: 1rem;
     font-family: inherit;
     color: black;
     background-color: white;
