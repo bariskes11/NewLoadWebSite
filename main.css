@@ -24,11 +24,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 
 }
-body
-{
+
+body {
     min-height: 100vh;
 }
 
@@ -63,8 +63,8 @@ nav ul {
     height: 100px;
 
 }
-nav .brand
-{
+
+nav .brand {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -72,29 +72,34 @@ nav .brand
     margin-left: 2vh;
 
 }
-nav .brandName
-{
- font-family: "Outfit", sans-serif;
- color: var(--palette5);
- font-weight: bold;
- font-size: 25px;
- padding-left: 1vh;
- cursor: pointer;
-}
-.brandName a
-{  color: inherit;
-  text-decoration: none;
 
+nav .brandName {
+    font-family: "Outfit", sans-serif;
+    color: var(--palette5);
+    font-weight: bold;
+    font-size: 25px;
+    padding-left: 1vh;
+    cursor: pointer;
 }
 
+.brandName a {
+    color: inherit;
+    text-decoration: none;
 
-.sidebar{/*mobile sidebar menu*/
-    position: fixed; /*make sure to snap it to right side*/
+}
+
+
+.sidebar {
+    /*mobile sidebar menu*/
+    position: fixed;
+    /*make sure to snap it to right side*/
     top: 0;
-    right:0;
-    backdrop-filter: blur(10px); /* blur effect for background*/
-    background-color: rgba(0,255,1, .2); /*blur effect bg color  needd alpha*/
-    box-shadow: -8px 0 10px rgba(0,0,0,0.6);
+    right: 0;
+    backdrop-filter: blur(10px);
+    /* blur effect for background*/
+    background-color: rgba(0, 255, 1, .2);
+    /*blur effect bg color  needd alpha*/
+    box-shadow: -8px 0 10px rgba(0, 0, 0, 0.6);
     height: 100vh;
     z-index: 1000;
     width: 100%;
@@ -102,21 +107,21 @@ nav .brandName
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    
+
 }
-.sidebar li
-{
+
+.sidebar li {
     align-items: left;
     justify-content: left;
-    
-    
+
+
 }
-.sidebar li a
-{
+
+.sidebar li a {
     width: 100%;
     color: #000000;
     font-weight: bold;
-    text-shadow: -8px 0 10px rgba(255,255,255,0.6);
+    text-shadow: -8px 0 10px rgba(255, 255, 255, 0.6);
 }
 
 h1 {
@@ -206,6 +211,13 @@ nav a:active {
     gap: 0;
 }
 
+.img-mobile,
+.img-tablet,
+.img-desktop {
+    display: none;
+
+}
+
 .slider-image {
     flex: 0 0 100%;
     position: relative;
@@ -226,7 +238,6 @@ nav a:active {
     width: 100%;
     height: 650px;
     object-fit: cover;
-    display: block;
     margin: 0;
     padding: 0;
 }
@@ -365,8 +376,8 @@ nav a:active {
     max-width: 80%;
     align-content: center;
     justify-self: center;
-    
-    
+
+
 }
 
 .column-card {
@@ -375,11 +386,11 @@ nav a:active {
     height: 100%;
 }
 
-.column-card h2
-{
+.column-card h2 {
     padding: 15px;
     font-size: 100%;
 }
+
 .text-column-content {
 
     border-width: 3px;
@@ -454,39 +465,81 @@ footer a::after {
 
 footer a:hover::after {
     transform: scaleX(1);
-    
+
 }
 
 footer .poweredby {
     justify-content: center;
     text-align: center;
 }
-footer .developer
-{
-     text-shadow: 5px 0px 5px var(--palette4);
-     font-size: 1.3rem;
-     color: var(--palette5);
-     height: 100%;
-     width: 100%;
+
+footer .developer {
+    text-shadow: 5px 0px 5px var(--palette4);
+    font-size: 1.3rem;
+    color: var(--palette5);
+    height: 100%;
+    width: 100%;
 }
-.mobile-menu
-{
+
+.mobile-menu {
     display: none;
+}
+
+@media (min-width: 1024px) {
+    .img-desktop {
+        display: block;
+    }
+
+    .img-tablet {
+        display: none;
+    }
+
+    .img-mobile {
+        display: none;
+    }
+
+
+}
+
+
+/*Tablet Resolution setting*/
+@media (min-width: 800px) and (max-width: 1024px) {
+    .img-tablet {
+        display: block;
+    }
+
+    .img-mobile {
+        display: none;
+    }
+
+    .img-desktop {
+        display: none;
+    }
 }
 
 /*Mobile Resolution setting*/
 @media (max-width:800px) {
-.dekstop-menu
-{
-    display: none;
-}    
-.mobile-menu
-{
-    display: inline;
-}
-    .slider-image img {
-        object-fit: scale-down;
+    .img-mobile {
+        display: block;
     }
+
+    .img-tablet {
+        display: none;
+    }
+
+    .img-desktop {
+        display: none;
+    }
+
+    .dekstop-menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: inline;
+    }
+
+
 
     nav {
         background: url('./image/nav-waves-mobile.svg') no-repeat;

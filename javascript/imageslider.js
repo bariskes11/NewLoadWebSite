@@ -7,11 +7,11 @@ showSlide(slideIndex);
 startTimer();
 
 function startTimer() {
-    clearInterval(timer);
-    timer = setInterval(function () {
+    // clearInterval(timer);
+    // timer = setInterval(function () {
         
-        showSlide(1); // Change slide every 10 seconds        
-    }, 5000);
+    //     showSlide(1); // Change slide every 10 seconds        
+    // }, 5000);
 
 }
 
