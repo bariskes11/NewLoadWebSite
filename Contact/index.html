@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="../contact.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
 
 </head>
 
@@ -46,12 +49,17 @@
 
         <div class="row">
             <div class="map-container">
-                <div>
-                    <iframe class="map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4105.965866615961!2d24.957606840027424!3d60.17841969957397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920ba0133962ed%3A0xf4b7f8d9b232e653!2sAutokorjaamo%20Merihaka%20Oy!5e1!3m2!1sen!2sfi!4v1789936387655!5m2!1sen!2sfi"
-                        style="border:0" allow="fullscreen" loading="lazy"
-                        referrerpolicy="strict-origin-when-cross-origin">
-                    </iframe>
+                 
+                <div class="map" >
+                    <div id="map" ></div>
+   <small>
+        <a class="map-link" target="_blank"
+           href="https://www.openstreetmap.org/?mlat=60.17765&amp;mlon=24.95253#map=16/60.17765/24.95253">
+           View Larger Map</a>
+    </small>
+
+               
+                 
                     <hr>
                 </div>
                 <div class="contact-information">
@@ -82,7 +90,7 @@
                             <div class="q-item">
                                 Your Question:
                             </div>
-                            <textarea id="txtquestion" class="q-item" rows="8" cols="3" 
+                            <textarea id="txtquestion" class="q-item" rows="8" cols="3"
                                 placeholder="We are here to help! Feel free to reach out!"></textarea>
                             <div class="txt-error" id="questionError"></div>
                         </div>
@@ -106,40 +114,43 @@
 
 
 
-       <footer>
+    <footer>
         <div class="footer-content">
             <div class="footer-heading ">
                 <h2> About Us</h2>
                 <a href="../Contact/"> Contact link</a>
-                <a href="#">  Hakaniemenranta 10 99530 </a>
-                <a href="#">  +358 999 99 99 99</a>
+                <a href="#"> Hakaniemenranta 10 99530 </a>
+                <a href="#"> +358 999 99 99 99</a>
             </div>
             <div class="footer-heading">
                 <h2> Social</h2>
-                <a href="#">  <img src="../image/icons8-instagram-48.png" alt=""> </a>
-                <a href="#">   <img src="../image/icons8-facebook-48.png" alt=""> </a>
-                <a href="#">   <img src="../image/icons8-x-48.png" alt=""> </a>
+                <a href="#"> <img src="../image/icons8-instagram-48.png" alt=""> </a>
+                <a href="#"> <img src="../image/icons8-facebook-48.png" alt=""> </a>
+                <a href="#"> <img src="../image/icons8-x-48.png" alt=""> </a>
             </div>
             <div class="footer-heading">
                 <h2> Documents</h2>
-                
-                <a  target="_blank" href="../WebReports/LoanWebSiteMockUp.png">  Mock ups </a>
-                
-                <a  target="_blank" href="../WebReports/NewSuperLoanWebSiteDocumen.docx">  Web Dev Documents </a>
-                <a  target="_blank" href="https://github.com/bariskes11/NewLoadWebSite">  Git Source </a>
+
+                <a target="_blank" href="../WebReports/LoanWebSiteMockUp.png"> Mock ups </a>
+
+                <a target="_blank" href="../WebReports/NewSuperLoanWebSiteDocumen.docx"> Web Dev Documents </a>
+                <a target="_blank" href="https://github.com/bariskes11/NewLoadWebSite"> Git Source </a>
             </div>
         </div>
 
         <div class="poweredby">
-            <a class="developer" target="_blank" href="https://bariskes.com">Developed by Barış KES </a>        
-            
-            
+            <a class="developer" target="_blank" href="https://bariskes.com">Developed by Barış KES </a>
+
+
             <br>
-            
-        <a target="_blank" href="https://icons8.com"> icons by Icons8</a>
+
+            <a target="_blank" href="https://icons8.com"> icons by Icons8</a>
         </div>
     </footer>
     <script src="../javascript/menuItems.js"></script>
+          <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
     <script>
         const emailError = document.getElementById("emailError");
         const questionError = document.getElementById("questionError");
@@ -198,7 +209,23 @@
             targetField.innerHTML = "";
         }
 
+   const officeLocation = [60.17765, 24.95253];
+
+const map = L.map("map", { scrollWheelZoom: false }).setView(officeLocation, 16);
+
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+L.marker(officeLocation)
+    .addTo(map)
+    .bindPopup("<strong>Super Loans!</strong><br>Find us here.")
+    .openPopup();
+
     </script>
+   
+
 </body>
 
 </html>

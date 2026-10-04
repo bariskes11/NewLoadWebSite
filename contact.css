@@ -75,13 +75,18 @@
     height: 300px;
 
 }
+#map
+{
+    width: 100%;
+    height: 100%;
+}
 
 .contact-information {
     font-family: "Outfit", sans-serif;
     color: var(--palette1);
     text-shadow: 4px 4px 4px var(--palette4);
     font-size: 1.25rem;
-    margin: 15px;
+    margin: 30px;
 }
 
 input[type="text"],
@@ -116,8 +121,17 @@ textarea:focus {
     color: var(--palette1);
     padding-left: 10px;
 }
+.map-link
+{
+    color: var(--palette3);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: "Outfit", sans-serif;
+    text-shadow: 2px 2px 2px var(--palette4);
+}
 
-@media (max-width:600px) {
+
+@media (max-width:800px) {
 
     .question-form {
 
