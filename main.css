@@ -100,7 +100,6 @@ nav .brandName {
 }
 
 .sidebar li {
-  align-items: left;
   justify-content: left;
 }
 
@@ -133,7 +132,7 @@ nav a:active {
   color: var(--palette4);
   cursor: pointer;
   font-family: "Outfit", sans-serif;
-  height: 50px important;
+  height: 50px;
   text-shadow: 5px 5px 5px var(--palette6);
 }
 
