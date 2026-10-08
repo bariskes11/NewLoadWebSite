@@ -2,243 +2,238 @@
    with this block. Your --palette3 / --palette4 variables stay as they are. */
 
 .calculator-content {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 25px 25px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px 25px;
 }
 
 .loan-value {
-    font-family: "Outfit", sans-serif;
-    font-size: large;
-    font-weight: bold;
+  font-family: "Outfit", sans-serif;
+  font-size: large;
+  font-weight: bold;
 }
-
-
 
 .loan-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    margin: 20px;
-    border-color: var(--palette5);
-    border-style: solid;
-    box-shadow: 0 0 10px var(--palette1);
-
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin: 20px;
+  border-color: var(--palette5);
+  border-style: solid;
+  box-shadow: 0 0 10px var(--palette1);
 }
-
 
 .loan-field {
-    --thumb: 80px;
-    /* icon size - change it here only */
+  --thumb: 80px;
+  /* icon size - change it here only */
 
-    margin: 10px;
-    padding: 0 calc(var(--thumb) / 2);
-    /* room for the icon to overhang the track ends */
-    box-sizing: border-box;
+  margin: 10px;
+  padding: 0 calc(var(--thumb) / 2);
+  /* room for the icon to overhang the track ends */
+  box-sizing: border-box;
 }
-
-
 
 .loan-result {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    vertical-align: top;
-    max-width: 100%;
-    margin-left: 10px;
-    margin-right: 10%;
-    margin-top: 60px;
-    margin-bottom: 40px;
-    font-family: "Outfit", sans-serif;
-    display: none;
-
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  vertical-align: top;
+  max-width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-family: "Outfit", sans-serif;
+  display: none;
 }
 
-
 .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* vertically line up the € value and the button */
+  flex-wrap: nowrap;
+  gap: 1rem;
+  min-height: 40px; /* was: height: 40px */
 }
 
 .row h2 {
-    margin: 0;
+  margin: 0;
 }
 
 /* ---------- slider ---------- */
 
 .slider-wrap {
-    --ratio: 0;
-    /* 0..1, set by JavaScript */
-    position: relative;
-    height: var(--thumb);
+  --ratio: 0;
+  /* 0..1, set by JavaScript */
+  position: relative;
+  height: var(--thumb);
 }
 
 /* track + fill */
 .slider-wrap::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 25px;
-    transform: translateY(-50%);
-    background: linear-gradient(to right,
-            var(--palette3) calc(var(--ratio) * 100%),
-            var(--palette4) calc(var(--ratio) * 100%));
-    opacity: 0.7;
-    transition: opacity .2s;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 25px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to right,
+    var(--palette3) calc(var(--ratio) * 100%),
+    var(--palette4) calc(var(--ratio) * 100%)
+  );
+  opacity: 0.7;
+  transition: opacity 0.2s;
 }
 
 .slider-wrap:hover::before,
 .slider-wrap:focus-within::before {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* icon, centred on the current value */
 .slider-wrap::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: calc(var(--ratio) * 100%);
-    width: var(--thumb);
-    height: var(--thumb);
-    transform: translateX(-50%);
-    background: url('./image/icons8-interest-rate-78.png') no-repeat center / contain;
-
-    pointer-events: none;
-    /* clicks go through to the input underneath */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(var(--ratio) * 100%);
+  width: var(--thumb);
+  height: var(--thumb);
+  transform: translateX(-50%);
+  background: url("./image/icons8-interest-rate-78.png") no-repeat center /
+    contain;
+  pointer-events: none;
+  /* clicks go through to the input underneath */
 }
 
 /* visible keyboard focus, since the real input is invisible */
 .slider-wrap:focus-within::after {
-    filter: drop-shadow(0 0 4px var(--palette3));
+  filter: drop-shadow(0 0 4px var(--palette3));
 }
 
 /* the real input: invisible, on top, one thumb wider than the wrapper
    so its native thumb travels exactly under the icon */
 .loan-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    position: absolute;
-    top: 0;
-    left: calc(var(--thumb) / -2);
-    width: calc(100% + var(--thumb));
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    opacity: 0;
-    cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 0;
+  left: calc(var(--thumb) / -2);
+  width: calc(100% + var(--thumb));
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .loan-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: var(--thumb);
-    height: var(--thumb);
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--thumb);
+  height: var(--thumb);
 }
 
 .loan-slider::-moz-range-thumb {
-    width: var(--thumb);
-    height: var(--thumb);
-    border: none;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: none;
+}
+.estimated-payment-label {
+  color: var(--palette3);
+  font-family: "Outfit", sans-serif;
+  text-shadow: 5px 5px 10px var(--palette4);
 }
 
 .estimated-payment {
-    color: var(--palette3);
-    font-family: "Outfit", sans-serif;
-    text-shadow: 5px 5px 10px var(--palette4);
+  justify-content: left;
 
-}
+  position: relative;
+  height: 70px;
+  display: block;
 
-.estimated-payment strong {
-    white-space: nowrap;
+  color: var(--palette3);
+  font-family: "Outfit", sans-serif;
+  text-shadow: 5px 5px 10px var(--palette4);
 }
 
 .loan-result-label {
-    color: var(--palette1);
-    font-family: "Outfit", sans-serif;
-    text-shadow: 5px 5px 10px var(--palette4);
-    font-size: 1rem;
-    font-weight: bold;
+  color: var(--palette1);
+  font-family: "Outfit", sans-serif;
+  text-shadow: 5px 5px 10px var(--palette4);
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .loan-result-details {
-    color: var(--palette3);
-    font-family: "Outfit", sans-serif;
-    text-shadow: 5px 5px 10px var(--palette4);
-    font-size: 1rem;
-    font-weight: bold;
-
+  color: var(--palette3);
+  font-family: "Outfit", sans-serif;
+  text-shadow: 5px 5px 10px var(--palette4);
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .estimated-payment strong {
-    color: var(--palette1);
-    font-size: 4rem;
+  color: var(--palette1);
+  font-size: 4rem;
 }
 
 .create-details {
-    align-content: center;
-    font-family: "Outfit", sans-serif;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: var(--palette5);
-    text-shadow: 1px 1px 1px var(--palette4);
-    cursor: pointer;
+  justify-content: right;
+  margin-left: auto;
+  align-content: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--palette5);
+  text-shadow: 1px 1px 1px var(--palette4);
+  cursor: pointer;
 
-    height: 70px;
-    border-radius: 5px;
-    background-color: var(--palette1);
-    border: 10px solid var(--palette1);
-    animation-iteration-count: 0;
+  height: 70px;
+  border-radius: 5px;
+  background-color: var(--palette1);
+  border: 10px solid var(--palette1);
+  animation-iteration-count: 0;
 }
 
 .create-details:hover,
 .create-details:active {
-    animation-name: calculatebuttonAnim;
-    animation-duration: 0.4s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+  animation-name: calculatebuttonAnim;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
-
 
 @keyframes calculatebuttonAnim {
+  0%,
+  100% {
+    border-radius: 5px;
+    background-color: var(--palette1);
+    border: 10px solid var(--palette1);
+  }
 
-    0%,
-    100% {
-
-        border-radius: 5px;
-        background-color: var(--palette1);
-        border: 10px solid var(--palette1);
-    }
-
-    50% {
-
-        border-radius: 5px;
-        background-color: var(--palette4);
-        border: 10px solid var(--palette4);
-
-    }
-
+  50% {
+    border-radius: 5px;
+    background-color: var(--palette4);
+    border: 10px solid var(--palette4);
+  }
 }
 
+@media (max-width: 1024px) {
+  .loan-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .loan-result {
+    margin-top: 160px;
+  }
+  .row {
+    flex-wrap: wrap;
+  }
+}
 @media (max-width: 800px) {
-    .loan-main {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-
-    .loan-result {
-        margin-top: 160px;
-    }
-    .row
-    {
-        flex-wrap: wrap;
-    }
-
-
-
+  .create-details {
+    margin-left: 0;
+  }
 }

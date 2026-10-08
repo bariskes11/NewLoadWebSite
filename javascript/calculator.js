@@ -57,7 +57,7 @@ function setLbl(elementId, val) {
 
 
 function monthlyEstimateUpdate() {
-    const lblestimate = document.getElementById('lblMonthlyEstimate');
+   ;
     const loanamontslider = document.getElementById('loanrange');
     const loanperiodslider = document.getElementById('yearrange');
     setLbl('lblamount', loanamontslider.value);
