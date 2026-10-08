@@ -137,6 +137,7 @@ nav a:active {
 }
 
 @keyframes bounceAnimation {
+
   0%,
   100% {
     transform: translateY(0);
@@ -393,6 +394,18 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 4px;
+  height: 80px;
+}
+
+.footer-heading-social {
+  flex: 1 1 180px;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.footer-social-img {
+  height: 50px;
 }
 
 footer a {
@@ -421,6 +434,8 @@ footer a:hover::after {
 }
 
 footer .poweredby {
+  width: 100%;
+  margin-bottom: 10px;
   justify-content: center;
   text-align: center;
 }
@@ -518,33 +533,4 @@ footer .developer {
     font-size: 2rem;
     padding: 58px 12px;
   }
-}
-
-@keyframes circleanimation {
-  0% {
-    fill: var(--palette1);
-  }
-   25% {
-    fill: var(--palette2);
-  }
-    50% {
-    fill: var(--palette3);
-  }
-  100%
-  {
-   fill: var(--palette5);
-  }
-}
-#animated-circle {
-  animation: circleanimation;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-}
-.animated-circle {
-  cx: "60";
-  cy: "60";
-  r: "30";
-  stroke: "green";
-  stroke-width: "4";
-  fill: "yellow";
 }
